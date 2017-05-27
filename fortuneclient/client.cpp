@@ -54,9 +54,9 @@ Client::Client(QWidget *parent)
     // input area
     QLabel *title = new QLabel("Write a Fortune:");
   //  clientInputWindow->setGeometry(600,Qt::AlignCenter, 240, 180);
-    inputFortune = new QPushButton("OK!");
+    inputFortune = new QPushButton("Send Fortune");
     input = new QLineEdit();
-    input->setMaximumSize(120,100);
+    //input->setMaximumSize(120,100);
 
 
     QPushButton *quitButton = new QPushButton(tr("Quit"));
@@ -97,6 +97,7 @@ Client::Client(QWidget *parent)
         outerHorizontalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::MinimumExpanding, QSizePolicy::Ignored));
         outerVerticalLayout->addLayout(outerHorizontalLayout);
         outerVerticalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Ignored, QSizePolicy::MinimumExpanding));
+
     } else {
         mainLayout = new QGridLayout(this);
     }
@@ -107,9 +108,9 @@ Client::Client(QWidget *parent)
     mainLayout->addWidget(statusLabel, 2, 0, 1, 2);
     mainLayout->addWidget(buttonBox, 3, 0, 1, 2);
     //mainLayout->addWidget(clientInput,4,1);
-    mainLayout->addWidget(title, 4, 0, 0, 0);
-    mainLayout->addWidget(input, 5, 0, 0, 0);
-    mainLayout->addWidget(inputFortune, 6, 0, 0, 0);
+    mainLayout->addWidget(title, 4, 0);
+    mainLayout->addWidget(input, 4, 1);
+    mainLayout->addWidget(inputFortune, 5, 0);
 
     setWindowTitle(QGuiApplication::applicationDisplayName());
     portLineEdit->setFocus();
