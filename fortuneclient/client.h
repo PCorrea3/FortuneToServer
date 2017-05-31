@@ -27,9 +27,7 @@ private slots:
     void displayError(QAbstractSocket::SocketError socketError);
     void enableGetFortuneButton();
     void sessionOpened();
-//    void showClientInput();
-//    void closeInput();
-
+    void sendFortune();
 private:
     QComboBox *hostCombo;
     QLineEdit *portLineEdit;
@@ -42,10 +40,9 @@ private:
 
     QNetworkSession *networkSession;
 
-    //QPushButton *clientInput;
-    //QWidget *clientInputWindow;
     QLineEdit *input;
     QPushButton *inputFortune;
+    QByteArray *fortune;
 };
 
 #endif

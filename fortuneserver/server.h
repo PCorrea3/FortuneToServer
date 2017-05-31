@@ -18,7 +18,7 @@ public:
 private slots:
     void sessionOpened();
     void sendFortune();
-
+    //void recFortune();
 private:
     QLabel *statusLabel;
     QTcpServer *tcpServer;
