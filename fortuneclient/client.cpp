@@ -2,7 +2,7 @@
 #include <QtNetwork>
 #include <QMessageBox>
 #include <QString>
-
+#include <QDebug>
 #include "client.h"
 
 Client::Client(QWidget *parent)
@@ -107,7 +107,7 @@ Client::Client(QWidget *parent)
     mainLayout->addWidget(portLineEdit, 1, 1);
     mainLayout->addWidget(statusLabel, 2, 0, 1, 2);
     mainLayout->addWidget(buttonBox, 3, 0, 1, 2);
-    //mainLayout->addWidget(clientInput,4,1);
+
     mainLayout->addWidget(title, 4, 0);
     mainLayout->addWidget(input, 4, 1);
     mainLayout->addWidget(inputFortune, 5, 0);
@@ -221,28 +221,19 @@ void Client::sessionOpened()
 
     enableGetFortuneButton();
 }
-/*
-void Client::showClientInput()
-{
-    clientInputWindow = new QWidget();
-    clientInputWindow->show();
-    QLabel *title = new QLabel("Write a Fortune:");
-    clientInputWindow->setGeometry(600,Qt::AlignCenter, 240, 180);
-    inputFortune = new QPushButton("OK!");
-    input = new QLineEdit();
-    input->setMaximumSize(120,100);
 
-    QGridLayout *windowLayout = new QGridLayout();
-    windowLayout->addWidget(title, 0, 0);
-    windowLayout->addWidget(input, 1, 0);
-    windowLayout->addWidget(inputFortune, 2, 0);
-    clientInputWindow->setLayout(windowLayout);
-
+void Client::sendFortune() {
+    qDebug() << "Hi";
+    inputFortune->setEnabled(false);
+    tcpSocket->abort();
+    tcpSocket->connectToHost(hostCombo->currentText(),
+        portLineEdit->text().toInt());
+    /*
+    //  QByteArray fortuneSent("Test");
+      qDebug() << "Hi";
+      inputFortune->setEnabled(false);
+      tcpSocket->connectToHost(hostCombo->currentText(), portLineEdit->text().toInt());
+  //    fortuneSent(reinterpret_cast<const char *>(&input), sizeof(input));
+      tcpSocket->abort();
+      */
 }
-
-void Client::closeInput()
-{
-    str = input->text();
-    this->close();
-}
-*/

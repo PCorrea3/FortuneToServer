@@ -1,6 +1,5 @@
 #include <QtWidgets>
 #include <QtNetwork>
-
 #include <stdlib.h>
 
 #include "server.h"
@@ -135,3 +134,8 @@ void Server::sendFortune()
     clientConnection->write(block);
     clientConnection->disconnectFromHost();
 }
+
+/*void Server::recFortune() {
+ *
+}
+*/
